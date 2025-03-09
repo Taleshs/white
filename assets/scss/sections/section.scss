@@ -1,0 +1,8 @@
+@use '../generic/variables' as *;
+@use '../generic/mixins' as *;
+
+.section {
+    display: flex;
+    padding: 80px 0;
+    font-family: var(--primary-font);
+}

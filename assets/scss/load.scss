@@ -1,0 +1,14 @@
+
+
+@use 'generic/variables' as *;
+@use 'generic/functions' as *;
+@use 'generic/mixins' as *;
+@use 'generic/reset';
+@use 'generic/base';
+
+@use "default/fonts";
+@use 'default/wrapper' as *;
+@use 'default/header' as *;
+@use 'default/footer' as *;
+
+@use 'components/btn';

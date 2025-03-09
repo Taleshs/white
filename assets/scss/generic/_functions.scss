@@ -1,0 +1,36 @@
+@use "sass:map"; 
+@use "sass:list"; 
+
+// Get the next breakpoint in the map
+@function get-next-breakpoint($name, $breakpoints: $breakpoints, $breakpoint-names: map.keys($breakpoints)) {
+    @if not map.has-key($breakpoints, $name) {
+        @warn "The breakpoint `#{$name}` does not exist in the breakpoint map.";
+        @return null;
+    }
+
+    $n: list.index($breakpoint-names, $name);
+    @return if($n != null and $n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
+}
+
+// Get the minimum value of a breakpoint (useful for `min-width` media queries)
+@function get-breakpoint-min($name, $breakpoints: $breakpoints) {
+    @if not map.has-key($breakpoints, $name) {
+        @warn "The breakpoint `#{$name}` does not exist in the breakpoint map.";
+        @return null;
+    }
+
+    $min: map.get($breakpoints, $name);
+    @return if($min != 0, $min + 0.02px, null); // Prevents rounding issues
+}
+
+// Get the maximum value of a breakpoint (useful for `max-width` media queries)
+@function get-breakpoint-max($name, $breakpoints: $breakpoints) {
+    $value: map.get($breakpoints, $name);
+
+    @if $value != null {
+        @return calc(#{$value} - 0.02px); // Ensures correct rounding for max-width media queries
+    }
+
+    @warn "⚠️ Breakpoint '#{$name}' was not found in $breakpoints!";
+    @return null;
+}

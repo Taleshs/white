@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="White Theme PHPCS">
+    <description>PHPCS Rules for White WordPress Theme</description>
+
+    <!-- Define a base standard (PSR-12) -->
+    <rule ref="PSR12"/>
+
+    <!-- Excluir pastas irrelevantes -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>assets/*</exclude-pattern>
+    <exclude-pattern>dist/*</exclude-pattern>
+</ruleset>

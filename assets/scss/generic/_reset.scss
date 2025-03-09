@@ -1,0 +1,202 @@
+/* ------------------------------------------------------------ *\
+	Reset Styles
+\* ------------------------------------------------------------ */
+
+* {
+	padding   : 0;
+	margin    : 0;
+	outline   : 0;
+	box-sizing: border-box;
+}
+
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+// Default block elements
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+main {
+	display: block;
+}
+
+template {
+	display: none;
+}
+
+// Tap highlight removal for better UX on mobile
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// Base body styles
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing : antialiased;
+	text-size-adjust       : none;
+	overflow-x             : hidden;
+}
+
+// Responsive media elements
+img,
+iframe,
+video,
+audio,
+object {
+	max-width: 100%;
+}
+
+img,
+iframe {
+	border: 0 none;
+}
+
+img {
+	height        : auto;
+	display       : inline-block;
+	vertical-align: middle;
+}
+
+// Typography
+b,
+strong {
+	font-weight: bold;
+}
+
+address {
+	font-style: normal;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+// Clickable elements
+a,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="file"],
+input[type="image"],
+label[for] {
+	cursor: pointer;
+}
+
+// Disabled elements
+button[disabled],
+input[disabled],
+textarea[disabled],
+select[disabled] {
+	cursor: default;
+}
+
+// Remove extra padding and borders in Firefox
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border : 0;
+}
+
+// Remove default browser appearance for form elements
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea,
+a[href^="tel"] {
+	appearance: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	appearance: none;
+}
+
+// Textarea scrolling improvements
+textarea {
+	overflow                  : auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+// Inherit typography styles for form elements
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family            : inherit;
+	font-size              : inherit;
+	color                  : inherit;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing : antialiased;
+}
+
+// Prevent uppercase transformation in select elements
+button,
+select {
+	text-transform: none;
+}
+
+button {
+	appearance: none;
+}
+
+// Tables
+table {
+	width          : 100%;
+	border-collapse: collapse;
+	border-spacing : 0;
+}
+
+// Navigation lists
+nav ul,
+nav ol {
+	list-style: none outside none;
+}
+
+// Placeholder styles
+input::placeholder,
+textarea::placeholder {
+	color  : inherit;
+	opacity: 1;
+}
+
+// Autofill styles for better consistency
+input:-webkit-autofill {
+	-webkit-text-fill-color: inherit;
+	-webkit-box-shadow     : 0 0 0 1000px #fff inset;
+}
+
+// Force remove default appearance in some browsers
+input[type="text"],
+input[type="button"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"],
+input[type="date"],
+input[type="search"],
+textarea {
+	appearance: none;
+}

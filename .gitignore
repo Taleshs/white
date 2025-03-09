@@ -1,0 +1,17 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Build and compiled files
+dist/
+vendor/
+
+# Environment variables
+.env.development
+
+# Editor settings and workspace files
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,49 @@
+/* ------------------------------------------------------------ *\
+	Variables
+\* ------------------------------------------------------------ */
+
+// Typography
+$font-size-base     : 18px;
+$font-size-large    : 24px;
+$h2-font-size       : 56px;
+$h2-font-size-small : 32px;
+$line-height-base   : 1.6;
+$line-height-large  : 2;
+$letter-spacing-base: 0.02em;
+
+// Font weights
+$font-light  : 300;
+$font-base   : 400;
+$font-medium : 500;
+$font-bold   : 700;
+
+// Breakpoints 
+$breakpoints: (
+    mobile-small: 380px,
+    mobile-medium: 575px,
+    mobile: 768px,
+    tablet: 1024px,
+    tablet-840: 840px,
+    small-desktop: 1199px,
+    medium-desktop: 1280px,
+    large-desktop: 1440px
+);
+
+
+// iOS Responsive Breakpoint (Usado em `_mixins.scss` para corrigir landscape em dispositivos móveis)
+$responsive-ios: 812px;
+
+// Spacing & Layout (Usado para espaçamentos consistentes)
+$spacing-base   : $line-height-base * 1em;
+$spacing-small  : 8px;
+$spacing-medium : 16px;
+$spacing-large  : 32px;
+
+// Borders (Espessura padrão de bordas)
+$border-thickness: 2px;
+
+// Z-index Levels (Hierarquia de camadas no layout)
+$z-index-low     : 10;
+$z-index-medium  : 100;
+$z-index-high    : 1000;
+$z-index-overlay : 9999;

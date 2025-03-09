@@ -1,0 +1,66 @@
+@use 'functions' as *;
+@use 'variables' as *;
+
+// Large font size mixin
+@mixin font-large {
+	font-size  : $font-size-large;
+	line-height: $line-height-large;
+}
+
+// Full overlay positioning
+@mixin overlay {
+	position: absolute;
+	top     : 0;
+	left    : 0;
+	width   : 100%;
+	height  : 100%;
+}
+
+// Placeholder styling for cross-browser compatibility
+@mixin input-placeholder {
+	&::placeholder { @content; } 
+	&:-moz-placeholder { @content; } 
+	&::-moz-placeholder { @content; } 
+	&:-ms-input-placeholder { @content; } 
+	&::-webkit-input-placeholder { @content; } 
+}
+
+// Clearfix fix for floated elements
+@mixin clearfix {
+	content    : '';
+	line-height: 0;
+	display    : table;
+	clear      : both;
+}
+
+// Responsive breakpoints mixins
+@mixin breakpoint-up($name, $breakpoints: $breakpoints) {
+	$min: get-breakpoint-min($name, $breakpoints);
+
+	@if $min != null {
+		@media (min-width: $min) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint-down($name, $breakpoints: $breakpoints) {
+	$max: get-breakpoint-max($name, $breakpoints);
+
+	@if $max != null {
+		@media (max-width: $max) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint-between($lower, $upper, $breakpoints: $breakpoints) {
+	$min: get-breakpoint-min($lower, $breakpoints);
+	$max: get-breakpoint-max($upper, $breakpoints);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+}
