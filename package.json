@@ -1,6 +1,6 @@
 {
   "name": "white-theme",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "White is an open-source WordPress theme built with Vite for optimized development and performance.",
   "author": "Tales Henrique",
   "license": "MIT",
@@ -12,7 +12,15 @@
     "url": "https://github.com/Taleshs/white/issues"
   },
   "homepage": "https://github.com/Taleshs/white#readme",
-  "keywords": ["wordpress", "theme", "vite", "acf", "classic-theme", "gutenberg", "open-source"],
+  "keywords": [
+    "wordpress",
+    "theme",
+    "vite",
+    "acf",
+    "classic-theme",
+    "gutenberg",
+    "open-source"
+  ],
   "scripts": {
     "build:assets": "vite build --config vite.assets.config.js",
     "build:sections": "vite build --config vite.sections.config.js",
@@ -22,16 +30,10 @@
     "watch": "npm-run-all --parallel watch:assets watch:sections",
     "update-version": "node update-version.js",
     "compile": "npm run update-version && cross-env NODE_ENV=production npm run build && node zipgenerator.js",
-    "lint:php": "lando php vendor/bin/phpcs --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/ $npm_config_target",
-    "fix:php": "lando php vendor/bin/phpcbf --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/ $npm_config_target",
-    "format:php": "lando php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
-    "lint:js": "eslint 'assets/**/*.js'",
-    "lint:css": "stylelint 'assets/**/*.scss' --syntax scss",
-    "fix:js": "eslint 'assets/**/*.js' --fix",
-    "fix:css": "stylelint 'assets/**/*.scss' --fix",
-    "lint": "npm-run-all lint:php lint:js lint:css",
-    "fix": "npm-run-all fix:php fix:js fix:css",
-    "format": "npx prettier --write ."
+    "lint:php": "lando php vendor/bin/phpcs --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/",
+    "fix:php": "lando php vendor/bin/phpcbf --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/",
+    "format:php": "lando php vendor/bin/php-cs-fixer fix --config=config/.php-cs-fixer.php",
+    "prepare": "husky install"
   },
   "dependencies": {
     "archiver": "^7.0.1",
@@ -43,14 +45,18 @@
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/config-array": "^0.19.2",
+    "@eslint/object-schema": "^2.1.6",
     "cross-env": "^7.0.3",
+    "eslint": "^9.22.0",
     "fast-glob": "^3.3.3",
+    "glob": "^11.0.1",
     "husky": "^8.0.0",
     "npm-run-all": "^4.1.5",
-    "vite": "^6.1.1",
-    "eslint": "^8.55.0",
     "prettier": "^3.1.0",
-    "stylelint": "^15.12.0",
-    "stylelint-config-standard-scss": "^12.0.0"
+    "rimraf": "^6.0.1",
+    "vite": "^6.1.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-stylelint": "^6.0.0"
   }
 }
