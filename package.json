@@ -1,52 +1,56 @@
 {
-    "name": "white-theme",
-    "version": "1.0.6",
-    "description": "White is an open-source WordPress theme built with Vite for optimized development and performance.",
-    "author": "Tales Henrique",
-    "license": "MIT",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/Taleshs/white"
-    },
-    "bugs": {
-      "url": "https://github.com/Taleshs/white/issues"
-    },
-    "homepage": "https://github.com/Taleshs/white#readme",
-    "keywords": ["wordpress", "theme", "vite", "acf", "classic-theme", "gutenberg", "open-source"],
-    "scripts": {
-      "build:assets": "vite build --config vite.assets.config.js",
-      "build:sections": "vite build --config vite.sections.config.js",
-      "build": "npm-run-all build:assets build:sections",
-      "watch:assets": "vite build --config vite.assets.config.js --watch",
-      "watch:sections": "vite build --config vite.sections.config.js --watch",
-      "watch": "npm-run-all --parallel watch:assets watch:sections",
-      "update-version": "node update-version.js",
-      "compile": "npm run update-version && cross-env NODE_ENV=production npm run build && node zipgenerator.js",
-      "lint:php": "lando php vendor/bin/phpcs",
-      "fix:php": "lando php vendor/bin/phpcbf",
-      "format:php": "lando php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
-      "lint": "npx eslint . --fix",
-      "format": "npx prettier --write ."
-    },
-    "dependencies": {
-      "archiver": "^7.0.1",
-      "dotenv": "^16.4.7",
-      "glightbox": "^3.3.1",
-      "imask": "^7.6.1",
-      "sass": "^1.85.0"
-    },
-    "devDependencies": {
-      "@commitlint/cli": "^19.7.1",
-      "@commitlint/config-conventional": "^19.7.1",
-      "cross-env": "^7.0.3",
-      "fast-glob": "^3.3.3",
-      "husky": "^8.0.0",
-      "npm-run-all": "^4.1.5",
-      "vite": "^6.1.1",
-      "eslint": "^8.55.0",
-      "prettier": "^3.1.0",
-      "phpcs": "^3.7.2",
-      "php-cs-fixer": "^3.22.0"
-    }
+  "name": "white-theme",
+  "version": "1.0.7",
+  "description": "White is an open-source WordPress theme built with Vite for optimized development and performance.",
+  "author": "Tales Henrique",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Taleshs/white"
+  },
+  "bugs": {
+    "url": "https://github.com/Taleshs/white/issues"
+  },
+  "homepage": "https://github.com/Taleshs/white#readme",
+  "keywords": ["wordpress", "theme", "vite", "acf", "classic-theme", "gutenberg", "open-source"],
+  "scripts": {
+    "build:assets": "vite build --config vite.assets.config.js",
+    "build:sections": "vite build --config vite.sections.config.js",
+    "build": "npm-run-all build:assets build:sections",
+    "watch:assets": "vite build --config vite.assets.config.js --watch",
+    "watch:sections": "vite build --config vite.sections.config.js --watch",
+    "watch": "npm-run-all --parallel watch:assets watch:sections",
+    "update-version": "node update-version.js",
+    "compile": "npm run update-version && cross-env NODE_ENV=production npm run build && node zipgenerator.js",
+    "lint:php": "lando php vendor/bin/phpcs --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/ $npm_config_target",
+    "fix:php": "lando php vendor/bin/phpcbf --standard=PSR12 --ignore=vendor/,node_modules/,assets/,dist/ $npm_config_target",
+    "format:php": "lando php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
+    "lint:js": "eslint 'assets/**/*.js'",
+    "lint:css": "stylelint 'assets/**/*.scss' --syntax scss",
+    "fix:js": "eslint 'assets/**/*.js' --fix",
+    "fix:css": "stylelint 'assets/**/*.scss' --fix",
+    "lint": "npm-run-all lint:php lint:js lint:css",
+    "fix": "npm-run-all fix:php fix:js fix:css",
+    "format": "npx prettier --write ."
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "dotenv": "^16.4.7",
+    "glightbox": "^3.3.1",
+    "imask": "^7.6.1",
+    "sass": "^1.85.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "cross-env": "^7.0.3",
+    "fast-glob": "^3.3.3",
+    "husky": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "vite": "^6.1.1",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "stylelint": "^15.12.0",
+    "stylelint-config-standard-scss": "^12.0.0"
   }
-  
+}
